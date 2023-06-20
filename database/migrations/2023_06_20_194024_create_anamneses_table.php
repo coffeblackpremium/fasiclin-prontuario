@@ -11,6 +11,7 @@ return new class extends Migration {
             $table->id();
             $table->bigInteger('cod_anamnese');
             $table->text('descricao');
+            $table->dateTime('data_anamnese');
             $table->timestamps();
         });
     }
