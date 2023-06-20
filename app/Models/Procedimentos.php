@@ -6,4 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Procedimentos extends Model
 {
+    protected $guarded = [];
 }
