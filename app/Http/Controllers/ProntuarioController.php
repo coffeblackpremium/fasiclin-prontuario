@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Prontuario;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -9,7 +10,7 @@ class ProntuarioController extends Controller
 {
     public function index()
     {
-        return Inertia::render('Prontuario/Index');
+        return Inertia::render('Prontuario/Index', ['prontuario' => $post]);
     }
 
     public function store(Request $request)
