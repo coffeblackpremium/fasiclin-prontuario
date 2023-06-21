@@ -9,5 +9,7 @@ class Cliente extends Model
 {
     use HasFactory;
 
+    protected $table = 'ag_cliente';
+
     protected $guarded = [];
 }

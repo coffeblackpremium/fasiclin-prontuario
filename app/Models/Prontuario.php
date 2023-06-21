@@ -9,5 +9,6 @@ class Prontuario extends Model
 {
     use HasFactory;
 
+    protected $table = 'pron_prontuario';
     protected $guarded = [];
 }
