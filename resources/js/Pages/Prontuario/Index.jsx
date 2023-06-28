@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
 
 export default function Index() {
+
     return (
         <div className="flex items-center justify-center h-screen bg-green-600">
             <div className="bg-white mx-auto w-full max-w-xl py-11 px-10 shadow rounded-lg">
