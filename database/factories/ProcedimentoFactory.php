@@ -13,7 +13,7 @@ class ProcedimentoFactory extends Factory
     public function definition(): array
     {
         return [
-            'id_procedimento' => fake()->numberBetween(1,9),
+            'id_procedimento' => fake()->unique()->numberBetween(1,9),
             'id_profissional' => Profissional::query()->inRandomOrder()->first()->id,
             'procedimento' => fake()->sentence(),
             'custo_honorario' => fake()->randomFloat('2'),
