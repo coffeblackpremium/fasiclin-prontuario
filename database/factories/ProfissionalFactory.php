@@ -12,9 +12,9 @@ class ProfissionalFactory extends Factory
     public function definition(): array
     {
         return [
-            'id_profissional' => fake()->unique()->numberBetween(1,9),
+            'id_profissional_de_saude' => fake()->unique()->numberBetween(1,9),
             'nome' => fake()->firstName(),
-            'especialidade' => fake()->word,
+            'especialidade' => fn() => ['Cirurgião', 'Cardiologista', 'Dentista', 'Fisioterapeuta'][fake()->numberBetween(0, 3)],
         ];
     }
 }
