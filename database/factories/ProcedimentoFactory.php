@@ -15,7 +15,7 @@ class ProcedimentoFactory extends Factory
         return [
             'id_procedimento' => fake()->unique()->numberBetween(1,9),
             'id_profissional' => Profissional::query()->inRandomOrder()->first()->id,
-            'procedimento' => fake()->sentence(),
+            'procedimento' => fake()->sentence(3),
             'custo_honorario' => fake()->randomFloat('2'),
             'honorarios' => fake()->randomFloat('2')
         ];

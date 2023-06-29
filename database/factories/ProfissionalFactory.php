@@ -13,7 +13,7 @@ class ProfissionalFactory extends Factory
     {
         return [
             'id_profissional' => fake()->unique()->numberBetween(1,9),
-            'nome' => fake()->name,
+            'nome' => fake()->firstName(),
             'especialidade' => fake()->word,
         ];
     }
