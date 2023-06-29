@@ -2,13 +2,13 @@
 
 namespace Database\Factories;
 
-use App\Models\Procedimentos;
+use App\Models\Procedimento;
 use App\Models\Profissional;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ProcedimentoFactory extends Factory
 {
-    protected $model = Procedimentos::class;
+    protected $model = Procedimento::class;
 
     public function definition(): array
     {
