@@ -11,4 +11,7 @@ class Procedimento extends Model
 
     protected $table = 'pron_procedimentos';
     protected $guarded = [];
+
+    const CREATED_AT = null;
+    const UPDATED_AT = null;
 }

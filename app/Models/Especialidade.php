@@ -10,4 +10,8 @@ class Especialidade extends Model
     use HasFactory;
 
     protected $table = 'pron_especialidade';
+
+    const CREATED_AT = null;
+    const UPDATED_AT = null;
+
 }

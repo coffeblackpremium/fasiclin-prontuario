@@ -11,4 +11,7 @@ class Fornecedor extends Model
     //Seta a tabela na model.
     protected $table = 'pron_fornecedor';
     protected $guarded = [];
+
+    const CREATED_AT = null;
+    const UPDATED_AT = null;
 }

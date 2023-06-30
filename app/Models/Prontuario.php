@@ -11,4 +11,7 @@ class Prontuario extends Model
 
     protected $table = 'pron_prontuario';
     protected $guarded = [];
+
+    const CREATED_AT = null;
+    const UPDATED_AT = null;
 }
