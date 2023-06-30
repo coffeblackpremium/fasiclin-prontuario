@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cliente;
 use App\Models\Prontuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -12,13 +13,15 @@ class ProntuarioController extends Controller
 {
     /**
      * Retorna a página principal do prontuario.
+     *
      * @param Prontuario $prontuario
      * @return Response
      */
-    public function index(Prontuario $prontuario)
+    public function index(Prontuario $prontuario): Response
     {
         return Inertia::render('Prontuario/Index', [
-            'prontuario' => $prontuario->paginate(10)
+            'prontuario' => $prontuario->paginate(10),
+            'cliente' => Cliente::query()->first()
         ]);
     }
 
