@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Prontuario extends Model
+class Procedimento extends Model
 {
     use HasFactory;
 
-    protected $table = 'pron_prontuario';
+    protected $table = 'pron_procedimentos';
     protected $guarded = [];
 
     const CREATED_AT = null;
