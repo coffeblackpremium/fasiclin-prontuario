@@ -16,13 +16,13 @@ class ProntuarioFactory extends Factory
     public function definition(): array
     {
         return [
-            'id_cpf' => Cliente::query()->inRandomOrder()->first()->cpf,
-            'id_especialidade' => Especialidade::query()->inRandomOrder()->first()->id,
-            'id_procedimentos' => Procedimento::query()->inRandomOrder()->first()->id,
-            'id_profissional_de_saude' => Profissional::query()->inRandomOrder()->first()->id,
+            'id_cpf' => Cliente::query()->first()->cpf_cliente,
+            'id_especialidade' => Especialidade::query()->inRandomOrder()->first()->id ?? 8,
+            'id_procedimentos' => Procedimento::query()->inRandomOrder()->first()->id ?? 2,
+            'id_profissional_de_saude' => Profissional::query()->inRandomOrder()->first()->id ?? 1,
             'data_hora' => fake()->unique()->date(),
             'descricao' => fake()->paragraph(2),
-            'link' => fake()->unique()->file(),
+            'link' => fake()->unique()->url(),
             'autenticado' => fake()->boolean(50),
         ];
     }
