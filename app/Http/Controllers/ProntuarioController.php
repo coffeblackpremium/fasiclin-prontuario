@@ -17,11 +17,12 @@ class ProntuarioController extends Controller
      * @param Prontuario $prontuario
      * @return Response
      */
-    public function index(Prontuario $prontuario): Response
+    public function index(): Response
     {
+        $prontuario = Prontuario::query()->paginate(10);
+
         return Inertia::render('Prontuario/Index', [
-            'prontuario' => $prontuario->paginate(10),
-            'cliente' => Cliente::query()->first()
+            'prontuario' => $prontuario
         ]);
     }
 
@@ -35,9 +36,9 @@ class ProntuarioController extends Controller
         return Inertia::render('Prontuario/Show');
     }
 
-    public function edit($id)
+    public function edit($prontuario): Response
     {
-        return Inertia::render('Prontuario/Edit');
+        return Inertia::render('Prontuario/Edit', ['prontuario' => $prontuario]);
     }
 
     public function update(Request $request, $id)
