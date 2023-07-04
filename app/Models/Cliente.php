@@ -13,9 +13,4 @@ class Cliente extends Model
     protected $table = 'ag_cliente';
 
     protected $guarded = [];
-
-    public function prontuario(): BelongsTo
-    {
-        return $this->belongsTo(Prontuario::class);
-    }
 }
