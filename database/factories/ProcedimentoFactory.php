@@ -14,10 +14,10 @@ class ProcedimentoFactory extends Factory
     {
         return [
             'id_procedimento' => fake()->unique()->numberBetween(1,9),
-            'id_profissional_de_saude' => Profissional::query()->inRandomOrder()->first()->id,
+            'id_profissional_de_saude' => Profissional::query()->orderByDesc('id_profissional_de_saude')->first()->id ?? 1,
             'procedimento' => fake()->sentence(3),
-            'custo_operacional' => fake()->randomFloat('2', 0, 500),
-            'hononarios' => fake()->randomFloat('2', 0, 500)
+            'custo_operacional' => fake()->randomFloat('2', 0, 100),
+            'honorarios' => fake()->randomFloat('2', 0, 100)
         ];
     }
 }
