@@ -3,9 +3,10 @@ import {Navbar} from "@/Components/Navbar.jsx";
 import {render} from "react-dom";
 import PrimaryButton from "@/Components/PrimaryButton.jsx";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faEdit} from "@fortawesome/free-solid-svg-icons";
+import {faEdit, faLink} from "@fortawesome/free-solid-svg-icons";
 import DangerButton from "@/Components/DangerButton.jsx";
 import imageFasipe from'/storage/app/public/images/logo-fasipe.png';
+import {Link} from "@inertiajs/react";
 
 
 
@@ -14,12 +15,16 @@ export default function Index({prontuarios}) {
     let items = [];
 
     for (const prontuario of prontuarios ) {
-        items.push(<tr key={prontuario.id}>
+        items.push(<tr key={prontuario.data_abertura}>
             <td className='px-4 py-3 bg-white'>{prontuario.cpf_cliente}</td>
             <td className='px-4 py-3 bg-white'>{prontuario.nome_cliente}</td>
             <td className='px-4 py-3 bg-white'>{prontuario.procedimento}</td>
             <td className='px-4 py-3 bg-white'>{prontuario.nome}</td>
-            <td className='px-4 py-3 bg-white'>{prontuario.link}</td>
+            <td className='px-4 py-3 bg-white'>
+                    <Link href={prontuario.link}>
+                        <FontAwesomeIcon icon={faLink} />
+                    </Link>
+            </td>
             <td className='px-4 py-3 bg-white w-64 text-center'>{prontuario.data_abertura}</td>
             <td className='px-4 py-3 bg-white'>
                 <PrimaryButton>
