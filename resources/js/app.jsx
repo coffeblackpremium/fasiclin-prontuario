@@ -4,6 +4,12 @@ import '../css/app.css';
 import { createRoot } from 'react-dom/client';
 import { createInertiaApp } from '@inertiajs/react';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faEdit, faEye } from '@fortawesome/free-solid-svg-icons';
+
+import { FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+
+library.add(faEdit, faEye)
 
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
 
