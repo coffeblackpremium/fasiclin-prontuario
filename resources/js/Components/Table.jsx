@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {Link} from "@inertiajs/react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faEdit, faLink} from "@fortawesome/free-solid-svg-icons";
+import {faEdit, faLink, faSearch} from "@fortawesome/free-solid-svg-icons";
 import PrimaryButton from "@/Components/PrimaryButton.jsx";
 import DangerButton from "@/Components/DangerButton.jsx";
 
@@ -11,7 +11,7 @@ export function Table({prontuarios}) {
     return (
         <div className='p-4 bg-white rounded-lg shadow-xs dark:bg-gray-600'>
             <div className="mb-3">
-                <div className="relative mb-4 flex md:max-w-3xl md:mx-auto flex-wrap items-stretch">
+                <div className="relative mb-4 flex md:max-w-3xl md:mx-auto flex-wrap items-center">
                     <input
                         type="search"
                         className="relative m-0 -mr-0.1 block w-[1px] min-w-0 flex-auto rounded-l border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary"
@@ -20,6 +20,7 @@ export function Table({prontuarios}) {
                         onChange={(e) => setSearch(e.target.value)}
                         aria-label="Search"
                         aria-describedby="button-addon"/>
+                    <FontAwesomeIcon icon={faSearch} className={'mx-4'} />
                 </div>
             </div>
             <div className="overflow-hidden mb-8 w-full rounded-lg border shadow-xs">

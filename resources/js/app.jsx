@@ -5,11 +5,9 @@ import { createRoot } from 'react-dom/client';
 import { createInertiaApp } from '@inertiajs/react';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faEdit, faEye, faLink} from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faEye, faLink, faSearch} from '@fortawesome/free-solid-svg-icons';
 
-import { FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-
-library.add(faEdit, faEye, faLink)
+library.add(faEdit, faEye, faLink, faSearch);
 
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
 

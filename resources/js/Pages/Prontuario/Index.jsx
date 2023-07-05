@@ -2,9 +2,6 @@ import React from 'react';
 import {Navbar} from "@/Components/Navbar.jsx";
 import imageFasipe from '/storage/app/public/images/logo-unifasipe.png';
 import {Table} from "@/Components/Table.jsx";
-import {SearchBar} from "@/Components/SearchBar.jsx";
-import {Tab} from "@headlessui/react";
-
 
 export default function Index({prontuarios}) {
     console.log(prontuarios);
