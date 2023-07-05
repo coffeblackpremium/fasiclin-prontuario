@@ -49,18 +49,17 @@ export function Table({prontuarios}) {
                                 <td className='px-4 py-3 bg-white'>{prontuario.procedimento}</td>
                                 <td className='px-4 py-3 bg-white'>{prontuario.nome}</td>
                                 <td className='px-4 py-3 bg-white'>
-                                    <Link href={prontuario.link}>
+                                    <Link>
                                         <FontAwesomeIcon icon={faLink}/>
                                     </Link>
                                 </td>
                                 <td className='px-4 py-3 bg-white w-64 text-center'>{prontuario.data_abertura}</td>
                                 <td className='px-4 py-3 bg-white white text-center'>
                                     <PrimaryButton className='mr-2'>
-                                        <FontAwesomeIcon icon={faEdit}/>
+                                        <Link href={'/prontuario/' + prontuario.cpf_cliente + '/' + prontuario.data_abertura + '/edit'}>
+                                            <FontAwesomeIcon icon={faEdit}/>
+                                        </Link>
                                     </PrimaryButton>
-                                    <DangerButton className='mr-2'>
-                                        Teste
-                                    </DangerButton>
                                 </td>
                             </tr>
                         ))}
