@@ -8,7 +8,7 @@ import {usePage} from "@inertiajs/react";
 import {Navbar} from "@/Components/Navbar.jsx";
 
 export default function Edit({prontuario}) {
-    console.log(prontuario);
+
     return (
         <div className={"md:h-screen bg-green-600 dark:bg-gray-900"}>
             <Navbar />
