@@ -2,6 +2,8 @@ import React from 'react';
 import {Navbar} from "@/Components/Navbar.jsx";
 import imageFasipe from '/storage/app/public/images/logo-unifasipe.png';
 import {Table} from "@/Components/Table.jsx";
+import Pagination from "@/Components/Pagination.jsx";
+import PaginationLinks from "@/Components/Pagination.jsx";
 
 export default function Index({prontuarios}) {
     console.log(prontuarios);
@@ -18,7 +20,10 @@ export default function Index({prontuarios}) {
             </div>
             <div className="flex items-center justify-center min-h-screen">
                 <div className="bg-white dark:bg-gray-500 mx-auto md:w-full py-10 px-10 shadow rounded-lg">
-                    <Table prontuarios={prontuarios} />
+                    <Table prontuarios={prontuarios.data} />
+                    <div className={"justify-start"}>
+                        <PaginationLinks pagination={prontuarios} links={prontuarios.links} meta={prontuarios.meta}/>
+                    </div>
                 </div>
             </div>
         </div>

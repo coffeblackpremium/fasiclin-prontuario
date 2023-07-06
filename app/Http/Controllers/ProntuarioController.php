@@ -26,7 +26,7 @@ class ProntuarioController extends Controller
             ->join('pron_especialidade', 'pron_especialidade.id_especialidade', '=', 'pron_prontuarios.id_especialidade')
             ->orderBy('pron_prontuarios.data_abertura', 'desc')
             ->select('pron_prontuarios.*', 'ag_cliente.nome_cliente', 'pron_procedimentos.procedimento', 'pron_especialidade.nome')
-            ->get();
+            ->paginate(10);
 
         return Inertia::render('Prontuario/Index', [
             'prontuarios' => $prontuario,
@@ -43,6 +43,13 @@ class ProntuarioController extends Controller
         return Inertia::render('Prontuario/Show');
     }
 
+    /**
+     * Retorna a página de edição do prontuário.
+     *
+     * @param $cpfCliente
+     * @param $dataAbertura
+     * @return Response
+     */
     public function edit($cpfCliente, $dataAbertura): Response
     {
         $data = Carbon::parse($dataAbertura)->format('Y-m-d H:i:s');
