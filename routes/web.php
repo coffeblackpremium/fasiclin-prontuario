@@ -36,6 +36,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::resource('prontuario', ProntuarioController::class);
+Route::resource('prontuario', ProntuarioController::class)->only('index');
+Route::get('prontuario/{cpfCliente}/{dataAbertura}/edit', [ProntuarioController::class, 'edit'])->name('prontuario.edit');
 
 require __DIR__.'/auth.php';
