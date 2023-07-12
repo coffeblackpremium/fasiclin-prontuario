@@ -35,7 +35,7 @@ class ProntuarioController extends Controller
 
     public function store(Request $request)
     {
-        // TODO
+        dd($request->all());
     }
 
     public function show($id)
@@ -66,11 +66,26 @@ class ProntuarioController extends Controller
                 'ag_cliente.nome_cliente',
                 'pron_procedimentos.procedimento',
                 'pron_especialidade.nome as nome_especialidade',
+                'pron_profissional.nome as nome_profissional');
+
+        $prontuarios = DB::table('pron_prontuarios')
+            ->join('ag_cliente', 'ag_cliente.cpf_cliente', '=', 'pron_prontuarios.cpf_cliente')
+            ->join('pron_procedimentos', 'pron_procedimentos.id_procedimento', '=', 'pron_prontuarios.id_procedimentos')
+            ->join('pron_especialidade', 'pron_especialidade.id_especialidade', '=', 'pron_prontuarios.id_especialidade')
+            ->join('pron_profissional', 'pron_profissional.id_profissional_de_saude', '=', 'pron_prontuarios.id_profissional_de_saude')
+            ->orderBy('pron_prontuarios.data_abertura', 'desc')
+            ->select(
+                'pron_prontuarios.*',
+                'ag_cliente.nome_cliente',
+                'pron_procedimentos.procedimento',
+                'pron_especialidade.nome as nome_especialidade',
                 'pron_profissional.nome as nome_profissional')
-            ->first();
+            ->paginate(3);
+
 
         return Inertia::render('Prontuario/Edit', [
-            'prontuario' => $prontuario,
+            'prontuario' => $prontuario->first(),
+            'prontuarios' => $prontuarios
         ]);
     }
 

@@ -18,7 +18,7 @@ class ProntuarioFactory extends Factory
         $dataAbertura = Cliente::query()->inRandomOrder()->first()->data_abertura;
 
         return [
-            'cpf_cliente' => Cliente::query()->first()->cpf_cliente,
+            'cpf_cliente' => Cliente::query()->get()->random()->cpf_cliente,
             'id_especialidade' => Especialidade::query()->inRandomOrder()->first()->id ?? 10,
             'id_procedimentos' => Procedimento::query()->inRandomOrder()->first()->id ?? 1,
             'id_profissional_de_saude' => Profissional::query()->inRandomOrder()->first()->id ?? 1,
