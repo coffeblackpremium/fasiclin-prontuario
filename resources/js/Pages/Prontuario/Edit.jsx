@@ -73,6 +73,8 @@ export default function Edit({prontuario, prontuarios}) {
                                 <InputLabel for="link" value="RIS e PACS"/>
                                 <input type="file" name="link" className={"block w-full mt-1 py-1 "} accept={''}
                                        value={data.link}
+                                       disabled
+                                       onError={e => setData('link', e.target.files[0].name)}
                                        onChange={e => setData('link', e.target.files[0].name)}/>
                                 {progress && (
                                     <progress value={progress.percentage} max="100">
@@ -117,11 +119,7 @@ export default function Edit({prontuario, prontuarios}) {
                                 <h1>Procedimento:{prontuarioGeral.nome_especialidade}</h1>
                                 <h1>Identificador do Profissional: {prontuarioGeral.id_profissional_de_saude}</h1>
                                 <PrimaryButton>
-                                    <Link href={route('prontuario.edit',
-                                        {
-                                            cpfCliente: prontuarioGeral.cpf_cliente,
-                                            dataAbertura: prontuarioGeral.data_abertura
-                                        })}>
+                                    <Link href={'/prontuario/' + prontuario.cpf_cliente + '/' + prontuario.data_abertura + '/show'}>
                                         <FontAwesomeIcon icon={faEye}/>
                                     </Link>
                                 </PrimaryButton>

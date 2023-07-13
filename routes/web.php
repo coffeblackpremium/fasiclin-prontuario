@@ -38,5 +38,7 @@ Route::middleware('auth')->group(function () {
 
 Route::resource('prontuario', ProntuarioController::class)->only('index');
 Route::get('prontuario/{cpfCliente}/{dataAbertura}/edit', [ProntuarioController::class, 'edit'])->name('prontuario.edit');
+Route::post('prontuario/{cpfCliente}/{dataAbertura}/store', [ProntuarioController::class, 'store'])->name('prontuario.store');
+Route::get('prontuario/{cpfCliente}/{dataAbertura}/show', [ProntuarioController::class, 'show'])->name('prontuario.show');
 
 require __DIR__.'/auth.php';

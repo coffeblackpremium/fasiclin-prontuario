@@ -35,11 +35,15 @@ class ProntuarioController extends Controller
 
     public function store(Request $request)
     {
-        dd($request->all());
+        DB::table('pron_prontuarios')->insert([
+            ...$request->all(),
+            'data_abertura' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
     }
 
-    public function show($id)
+    public function show(string $cpfCliente, string $dataAbertura): Response
     {
+        dd($cpfCliente, $dataAbertura);
         return Inertia::render('Prontuario/Show');
     }
 
