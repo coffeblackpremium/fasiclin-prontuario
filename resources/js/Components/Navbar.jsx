@@ -28,6 +28,16 @@ export const Navbar = () => {
                                className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent"
                                aria-current="page">Home</Link>
                         </li>
+                        <li>
+                            <Link href={route('prontuario.index')}
+                                  className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent"
+                                  aria-current="page">Adicionar Procedimentos</Link>
+                        </li>
+                        <li>
+                            <Link href={route('prontuario.index')}
+                                  className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent"
+                                  aria-current="page">Adicionar </Link>
+                        </li>
                     </ul>
                 </div>
             </div>
