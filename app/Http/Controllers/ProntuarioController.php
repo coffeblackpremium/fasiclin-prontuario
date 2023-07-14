@@ -43,7 +43,6 @@ class ProntuarioController extends Controller
 
     public function show(string $cpfCliente, string $dataAbertura): Response
     {
-        dd($cpfCliente, $dataAbertura);
         return Inertia::render('Prontuario/Show');
     }
 
