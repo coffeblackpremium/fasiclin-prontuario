@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProcedimentosController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProntuarioController;
 use Illuminate\Foundation\Application;
@@ -36,9 +37,14 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::resource('prontuario', ProntuarioController::class)->only('index');
-Route::get('prontuario/{cpfCliente}/{dataAbertura}/edit', [ProntuarioController::class, 'edit'])->name('prontuario.edit');
-Route::post('prontuario/{cpfCliente}/{dataAbertura}/store', [ProntuarioController::class, 'store'])->name('prontuario.store');
-Route::get('prontuario/{cpfCliente}/{dataAbertura}/show', [ProntuarioController::class, 'show'])->name('prontuario.show');
+Route::controller(ProntuarioController::class)->group(function() {
+    Route::resource('prontuario', ProntuarioController::class)->only('index');
+    Route::get('prontuario/{cpfCliente}/{dataAbertura}/edit', [ProntuarioController::class, 'edit'])->name('prontuario.edit');
+    Route::post('prontuario/{cpfCliente}/{dataAbertura}/store', [ProntuarioController::class, 'store'])->name('prontuario.store');
+    Route::get('prontuario/{cpfCliente}/{dataAbertura}/show', [ProntuarioController::class, 'show'])->name('prontuario.show');
+});
+
+Route::resource('procedimentos',ProcedimentosController::class);
+
 
 require __DIR__.'/auth.php';
