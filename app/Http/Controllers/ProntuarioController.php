@@ -26,6 +26,7 @@ class ProntuarioController extends Controller
             ->join('pron_especialidade', 'pron_especialidade.id_especialidade', '=', 'pron_prontuarios.id_especialidade')
             ->orderBy('pron_prontuarios.data_abertura', 'desc')
             ->select('pron_prontuarios.*', 'ag_cliente.nome_cliente', 'pron_procedimentos.procedimento', 'pron_especialidade.nome')
+            ->distinct()
             ->paginate(10);
 
         return Inertia::render('Prontuario/Index', [
@@ -39,6 +40,8 @@ class ProntuarioController extends Controller
             ...$request->all(),
             'data_abertura' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
+
+        return redirect()->to(route('prontuario.index'))->with('success', 'Prontuario criado com sucesso!');
     }
 
     public function show(string $cpfCliente, string $dataAbertura): Response

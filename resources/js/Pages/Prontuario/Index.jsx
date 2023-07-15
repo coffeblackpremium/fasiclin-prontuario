@@ -6,8 +6,6 @@ import Pagination from "@/Components/Pagination.jsx";
 import PaginationLinks from "@/Components/Pagination.jsx";
 
 export default function Index({prontuarios}) {
-    console.log(prontuarios);
-
     return (
         <div className="max-w-full mx-auto bg-green-600 dark:bg-gray-900">
             <Navbar/>
